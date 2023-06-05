@@ -12,3 +12,12 @@ function subtraction(minued, subtrahend){
 function multiplication(multiplicand, multiplier){
     return multiplicand * multiplier
 }
+
+
+function division(dividend, divisor){
+    return dividend / divisor
+}
+
+function modulo(dividend, divisor){
+    return dividend % divisor
+}
