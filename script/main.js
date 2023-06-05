@@ -4,3 +4,7 @@
 function addition(firstAddend, secondAddend){
     return firstAddend + secondAddend
 }
+
+function subtraction(minued, subtrahend){
+    return minued - subtrahend
+}
