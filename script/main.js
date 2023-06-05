@@ -8,3 +8,7 @@ function addition(firstAddend, secondAddend){
 function subtraction(minued, subtrahend){
     return minued - subtrahend
 }
+
+function multiplication(multiplicand, multiplier){
+    return multiplicand * multiplier
+}
