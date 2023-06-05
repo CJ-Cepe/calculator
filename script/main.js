@@ -1,4 +1,3 @@
-
 //set rule
 //for arithmetic function, use proper(specific) term
 function addition(firstAddend, secondAddend){
@@ -13,7 +12,6 @@ function multiplication(multiplicand, multiplier){
     return multiplicand * multiplier
 }
 
-
 function division(dividend, divisor){
     return dividend / divisor
 }
@@ -21,3 +19,4 @@ function division(dividend, divisor){
 function modulo(dividend, divisor){
     return dividend % divisor
 }
+
