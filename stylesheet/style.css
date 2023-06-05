@@ -17,14 +17,36 @@ body{
 
 main{
     background-color: aquamarine;
-    width: 30vw;
-    height: 50vh;
+    width: 40vw;
+    height: 80vh;
     display: flex;
+    flex-wrap: wrap;
+}
+
+#panel, .upper-cont{
+    flex-grow: 1;
+    flex-basis: 100%;
+}
+
+#panel{
+    background-color: rgb(189, 21, 43);
+    height: 30%;
+}
+
+.upper-cont{
+    background-color: royalblue;
+    height: 13%;
+    display: flex;
+}
+
+#clear, #backspace{
+    flex: 1;
 }
 
 .left-cont, .right-cont{
     display: flex;
     flex-grow: 1;
+    height: 57%;
 }
 
 .left-cont{
