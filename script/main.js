@@ -27,7 +27,7 @@
             operatorFlag = true
             console.log(operatorFlag)
             display()
-        } else if(['add','subtract','multiply','divide','modulo','equal'].includes(e.target.id) && operatorFlag && expression.length != 0){
+        } else if(['add','subtract','multiply','divide','modulo','equal'].includes(e.target.id) && operatorFlag && expression.length != 0){ // to prevent be
             //if equals solve
             console.log(e.target.id)
             expression.push(e.target.textContent)
@@ -36,7 +36,29 @@
             console.log(operatorFlag)
             display()
         }
+        d()
     }
+
+    function d(){
+        //put numbers in a s
+        let tempExpression = []
+        let tempValue = ''
+        //loop through array
+        expression.forEach((value) => {
+            if(['+', '-', '*', '/', '%', '='].includes(value)){
+                tempExpression.push(tempValue)
+                tempValue = ''
+                tempExpression.push(value)
+            } else {
+                tempValue += value
+            }
+            }
+        )
+        console.log(tempExpression)
+            //if number - concatenate all
+            //if encounter - operator - push number on new list as well the new operator    
+    }
+
 
     function toString(){
         return expression.join('')
