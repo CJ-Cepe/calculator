@@ -17,7 +17,7 @@ body{
 
 main{
     background-color: aquamarine;
-    width: 40vw;
+    width: 30vw;
     height: 80vh;
     display: flex;
     flex-wrap: wrap;
@@ -29,7 +29,7 @@ main{
 }
 
 #panel{
-    background-color: rgb(189, 21, 43);
+    background-color: rgb(40, 182, 218);
     height: 30%;
 }
 
