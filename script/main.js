@@ -78,26 +78,36 @@
 
     function solve(){
         let compactExpression = compact()
+        let accumulator = 0
+
         if(compactExpression.length == 1) {
             return compactExpression[0]
         }
-        let accumulator = 0
+        
+        //handle division, multiplication, and modulo
+        for(let i = 0; i <compactExpression.length; i++){
+            if(['*','/','%'].includes(compactExpression[i])){
+                let operand1 = +compactExpression[i-1]
+                let operator = compactExpression[i]
+                let operand2 = +compactExpression[i+1]
+                accumulator = operate(operand1, operand2, operator)
+                compactExpression.splice(i-1, 3)
+                compactExpression.splice(i-1, 0, String(accumulator))
+                i=0
+            }
+        }
 
-        //!!!!!!
-        //set to handle pemdas
-
-        //solves the expression left to right
-        //every loop, the first 3 values from the array are evaluated separately from the rest
-        //then removed from the array, and the accumulator is added
-        for(let i = compactExpression.length; i > 1; i = i - 2){
-            console.log(`${i} = ${compactExpression}`)
-            let operand1 = +compactExpression[0]
-            let operator = compactExpression[1] //consecutive
-            let operand2 = +compactExpression[2] //2nd consective
-            console.log(`operand 1 = ${operand1}, operator 2 = ${operator}, operand 3 = ${operand2}`)
-            accumulator = operate(operand1, operand2, operator)
-            compactExpression=compactExpression.slice(3)
-            compactExpression.splice(0, 0, accumulator)
+        //handle addition and subtraction
+        for(let i =0; i<compactExpression.length; i++){
+            if(['+','-'].includes(compactExpression[i])){
+                let operand1 = +compactExpression[i-1]
+                let operator = compactExpression[i]
+                let operand2 = +compactExpression[i+1]
+                accumulator = operate(operand1, operand2, operator)
+                compactExpression.splice(i-1, 3)
+                compactExpression.splice(i-1, 0, String(accumulator))
+                i=0
+            }
         }
 
         return accumulator
