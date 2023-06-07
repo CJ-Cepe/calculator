@@ -5,57 +5,75 @@
     
     mainContainer = document.querySelector('main')
     let expression = []
+    let history = []
     let operatorFlag = true
+    let result
     
-    mainContainer.onclick = function (e){
+    mainContainer.onclick = function(e){
         if(e.target.id === 'clear'){
-            //clear 
-            console.log(e.target.id)
+            //clear also history ???
+            result = null
             expression = []
+            history = []
             display()
+            updateHistory()
         } else if(e.target.id === 'backspace'){
+            if(result){
+                updateHistory()
+                result = null
+            }
+            
+            //reverse
+            operatorFlag = operatorFlag ? false:true
+
             //pop
-            console.log(e.target.id)
             expression.pop()
             display()
         } else if(e.target.id === 'panel'){
             //do nothing nothing
         } else if(['zero','one','two','three','four','five','six','seven','eight','nine'].includes(e.target.id)){
-            console.log(e.target.id)
+            //behaviour - so that when there is result, and a number is type instead of an operator - reset stuff
+            if(result){
+                result = null
+                expression = []
+                updateHistory()
+            }
+
             expression.push(e.target.textContent)
-            
             operatorFlag = true
-            console.log(operatorFlag)
             display()
         } else if(['add','subtract','multiply','divide','modulo'].includes(e.target.id) && operatorFlag && expression.length != 0){ // to prevent be
-            //if equals solve
-            console.log(e.target.id)
-            expression.push(e.target.textContent)
+            if(result){
+                updateHistory()
+                result = null
+            }
 
+            //if equals solve
+            expression.push(e.target.textContent)
             operatorFlag = false
-            console.log(operatorFlag)
             display()
         } else if(e.target.id == 'equal' && operatorFlag && expression.length != 0){
-            console.log(e.target.id)
-            //dont append
-            expression.push(e.target.textContent)
 
-            operatorFlag = false
-            console.log(operatorFlag)
-            
-            let result = solve()
-            //removing equals in the display array because it was included first to set as flag for the compact function - this is lesser code
-            expression.pop() 
-            //temporary to display only
-            expression.push(`=${result}`)
+            if(result){
+                updateHistory()
+                result = null
+            }
 
-            display()
-            //!!!!!!
-            //clear array
-            //add only the latest result as initial valueS
-            //put the old as history
+            expression.push(e.target.textContent) //push the = sign
+            operatorFlag = true //to allow operators be applied to operands
+            result = solve()    //solve the current content of the expression
+            expression.push(result) //temporary to display only
+            history.push(display())
+
+            expression = []
+            console.log(typeof result)
+            let tempResult = Array.from(String(result))
+            //expression.push(result)
+            for(let i = 0; i<tempResult.length; i++){
+                expression.push(tempResult[i])
+                console.log(tempResult[i])
+            }
         }
-        
     }
 
     function solve(){
@@ -118,7 +136,13 @@
     function display(){
         //to dislay current values in the panel
         let tempExpression = toString()
-        document.querySelector('#panel').textContent = tempExpression
+        document.querySelector('#lower-panel').textContent = tempExpression
+
+        return tempExpression
+    }
+
+    function updateHistory(){
+        document.querySelector('#upper-panel').textContent = history
     }
 
     function addition(firstAddend, secondAddend){

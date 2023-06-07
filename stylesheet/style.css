@@ -33,6 +33,16 @@ main{
     height: 30%;
 }
 
+#upper-panel{
+background-color: lightgreen;
+height: 60%;
+}
+
+#lower-panel{
+    background-color: limegreen;
+    height: 40%;
+}
+
 .upper-cont{
     background-color: royalblue;
     height: 13%;
