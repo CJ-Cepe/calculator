@@ -7,6 +7,7 @@
     let expression = []
     let history = []
     let operatorFlag = true
+    
     let result
     
     mainContainer.onclick = function(e){
@@ -23,7 +24,6 @@
                 result = null
             }
             
-
             //pop
             expression.pop()
 
@@ -57,6 +57,7 @@
             //if equals solve
             expression.push(e.target.textContent)
             operatorFlag = false
+           // pointFlag = false
             display()
         } else if(e.target.id == 'equal' && operatorFlag && expression.length != 0){
 
@@ -79,7 +80,34 @@
                 expression.push(tempResult[i])
                 console.log(tempResult[i])
             }
+        } else if(e.target.id == 'point'){
+
+            let pointFlag = false
+
+            //checks if there is already a point in the operand it belongs
+            for(let i = expression.length -1; i >= 0; i--){
+                if(expression[i]=='.'){
+                    pointFlag = true
+                } else if(['+', '-', '*', '/', '%'].includes(expression[i])){
+                    break
+                }
+
+                console.log(expression[i])
+            }
+
+            if(!pointFlag){
+                if(isNaN(+expression[expression.length - 1])){
+                    console.log('.')
+                    expression.push('0')
+                    expression.push('.')
+                } else if(!isNaN(+expression[expression.length - 1])){
+                    expression.push('.')
+                }
+            }
+
+            display()
         }
+
     }
 
     function solve(){
