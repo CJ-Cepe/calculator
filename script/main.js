@@ -4,15 +4,13 @@
 (function(){
     
     mainContainer = document.querySelector('main')
-    let expression = []
-    let history = []
+    let expression = []     // hold the current expression per individual char
+    let history = []    // hold the history of equations
     let operatorFlag = true
-    
     let result
     
     mainContainer.onclick = function(e){
         if(e.target.id === 'clear'){
-            //clear also history ???
             result = null
             expression = []
             history = []
@@ -26,7 +24,6 @@
             
             //pop
             expression.pop()
-
 
             if(!isNaN(+expression[expression.length - 1])){
                 operatorFlag =  true
@@ -57,7 +54,6 @@
             //if equals solve
             expression.push(e.target.textContent)
             operatorFlag = false
-           // pointFlag = false
             display()
         } else if(e.target.id == 'equal' && operatorFlag && expression.length != 0){
 
@@ -81,9 +77,7 @@
                 console.log(tempResult[i])
             }
         } else if(e.target.id == 'point'){
-
             let pointFlag = false
-
             //checks if there is already a point in the operand it belongs
             for(let i = expression.length -1; i >= 0; i--){
                 if(expression[i]=='.'){
@@ -91,8 +85,6 @@
                 } else if(['+', '-', '*', '/', '%'].includes(expression[i])){
                     break
                 }
-
-                console.log(expression[i])
             }
 
             if(!pointFlag){
@@ -107,7 +99,6 @@
 
             display()
         }
-
     }
 
     function solve(){
@@ -144,6 +135,8 @@
             }
         }
 
+        //!!!
+        //round of accumulator
         return accumulator
     }
 
