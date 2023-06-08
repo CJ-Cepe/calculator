@@ -23,11 +23,17 @@
                 result = null
             }
             
-            //reverse
-            operatorFlag = operatorFlag ? false:true
 
             //pop
             expression.pop()
+
+
+            if(!isNaN(+expression[expression.length - 1])){
+                operatorFlag =  true
+            } else {
+                operatorFlag = false
+            }
+
             display()
         } else if(e.target.id === 'panel'){
             //do nothing nothing
@@ -191,11 +197,6 @@
                 console.log('invalid operator')
         }
     }
-
-
-
-
-
 })(); //self invoking function
 
 
