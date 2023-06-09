@@ -16,11 +16,12 @@ body{
 }
 
 main{
-    background-color: aquamarine;
+    background-color: #191919;
     width: 30vw;
     height: 80vh;
     display: flex;
     flex-wrap: wrap;
+    padding: 0.5%;
 }
 
 #panel, .upper-cont{
@@ -34,12 +35,12 @@ main{
 }
 
 #upper-panel{
-background-color: lightgreen;
+background-color: #191919;
 height: 60%;
 }
 
 #lower-panel{
-    background-color: limegreen;
+    background-color: #272727;
     height: 40%;
 }
 
@@ -94,4 +95,13 @@ height: 60%;
 
 #add, #equal{
     flex-basis: 40%;
+}
+
+#equal{
+    background-color: #10B5F2;
+    color: #272727
+}
+
+.operator{
+    color: #10B5F2
 }
