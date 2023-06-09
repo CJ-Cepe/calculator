@@ -1,15 +1,21 @@
 *{
     /* outline: 1px red solid; */
+    
+   
+}
+
+*, *::before, *::after {
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    
 }
 
 body{
-    font-family: 'Courier New', Courier, monospace;
+    padding: 0;
+    margin: 0;
     font-size: 2em;
     height: 100vh;
-    background-color: antiquewhite;
+    background-color: #F8F8F8;
     display: flex;
     justify-content: center;
     align-items: center;
