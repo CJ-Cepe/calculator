@@ -75,7 +75,8 @@ height: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
-    outline: 1px solid black;
+    background-color: #444444;
+    color: #F8F8F8
 }
 
 .left-cont .button{
