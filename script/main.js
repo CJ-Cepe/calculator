@@ -1,5 +1,4 @@
 
-
 //self invoked function
 (function(){
     
@@ -174,12 +173,20 @@
         //to dislay current values in the panel
         let tempExpression = toString()
         document.querySelector('#lower-panel').textContent = tempExpression
-
+        
         return tempExpression
     }
 
     function updateHistory(){
-        document.querySelector('#upper-panel').textContent = history
+        let historyElem = document.querySelector('#upper-panel')
+        
+        if(history.length == 0){
+            historyElem.textContent = ""
+            return
+        }
+        
+        historyElem.textContent += `${history[history.length - 1]} \n`
+        historyElem.scrollTop = historyElem.scrollHeight;
     }
 
     function addition(firstAddend, secondAddend){
