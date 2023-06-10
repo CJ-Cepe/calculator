@@ -55,7 +55,10 @@ main{
 
 #lower-panel{
     background-color: #272727;
+    
     height: 40%;
+    text-align: right;
+    padding-right: 5%;
 }
 
 .upper-cont{
