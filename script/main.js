@@ -172,6 +172,22 @@
     function display(){
         //to dislay current values in the panel
         let tempExpression = toString()
+
+        //if contains = in equation?
+        //pop last value
+        //insert to another div or p holding it
+        //let css style it
+        console.log(tempExpression.includes('='))
+        if (tempExpression.includes('=')){
+            let tempIndex = tempExpression.indexOf('=')
+            console.log(`inside index ${tempIndex}`)
+            let tempResultValue = tempExpression.slice(tempIndex+1)
+            console.log(`inside ${tempExpression}`)
+            console.log(`inside ${tempResultValue}`)
+            //remove tempExpression last value
+        } else {
+            
+        } //delete element if none
         document.querySelector('#lower-panel').textContent = tempExpression
         
         return tempExpression
