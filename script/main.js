@@ -171,26 +171,39 @@
 
     function display(){
         //to dislay current values in the panel
-        let tempExpression = toString()
+        let strExpression = toString()
+        document.querySelector('#lower-panel').textContent = strExpression
+
 
         //if contains = in equation?
+        //remove tempExpression last value
         //pop last value
         //insert to another div or p holding it
         //let css style it
-        console.log(tempExpression.includes('='))
-        if (tempExpression.includes('=')){
-            let tempIndex = tempExpression.indexOf('=')
-            console.log(`inside index ${tempIndex}`)
-            let tempResultValue = tempExpression.slice(tempIndex+1)
-            console.log(`inside ${tempExpression}`)
-            console.log(`inside ${tempResultValue}`)
-            //remove tempExpression last value
+        console.log(strExpression.includes('='))
+        if (strExpression.includes('=')){
+            //get result - which is after =
+            let tempResultValue = strExpression.slice(strExpression.indexOf('=')+1)
+            //get equals 
+            let tempExpression = strExpression.slice(0,strExpression.indexOf('=')+1)
+            document.querySelector('#lower-panel').textContent = tempExpression
+            let tempResultElement = document.createElement('span')
+            tempResultElement.classList.add('final-result')
+            tempResultElement.textContent = tempResultValue
+            document.querySelector('#lower-panel').appendChild(tempResultElement)
+            console.log('inserted span')
         } else {
-            
+            try {
+                let tempResult = document.querySelector('.final-result')
+                document.querySelector('#lower-panel').removeChild(tempResult)
+                console.log('remove span')
+            } catch(e){
+                console.log('no child exist babe')
+            }
         } //delete element if none
-        document.querySelector('#lower-panel').textContent = tempExpression
+       
         
-        return tempExpression
+        return strExpression
     }
 
     function updateHistory(){
