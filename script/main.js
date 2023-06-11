@@ -174,12 +174,15 @@
         let strExpression = toString()
         document.querySelector('#lower-panel').textContent = strExpression
 
-
-        //if contains = in equation?
-        //remove tempExpression last value
-        //pop last value
-        //insert to another div or p holding it
-        //let css style it
+        //check if there is equal sign '='
+        //if there is, 
+        //  slice the result and put it in its individual element
+        //  slice the strExpression also until, inclusive, the equal sign
+        //  append child
+        //else
+        //  remove appended child if it exist
+        //  either way the content is overwritten for every new entry
+        //did not change other things
         console.log(strExpression.includes('='))
         if (strExpression.includes('=')){
             //get result - which is after =
@@ -192,7 +195,7 @@
             tempResultElement.textContent = tempResultValue
             document.querySelector('#lower-panel').appendChild(tempResultElement)
             console.log('inserted span')
-        } else {
+        } else { //delete element if no equal
             try {
                 let tempResult = document.querySelector('.final-result')
                 document.querySelector('#lower-panel').removeChild(tempResult)
@@ -200,9 +203,8 @@
             } catch(e){
                 console.log('no child exist babe')
             }
-        } //delete element if none
+        } 
        
-        
         return strExpression
     }
 
