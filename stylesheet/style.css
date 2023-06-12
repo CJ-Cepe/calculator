@@ -10,7 +10,6 @@
 body{
     padding: 0;
     margin: 0;
-    font-size: 2em;
     height: 100vh;
     background-color: #272727;
     display: flex;
@@ -34,6 +33,7 @@ main{
 
 #panel{
     height: 30%;
+    width: 100%;
 }
 
 #upper-panel{
@@ -42,7 +42,8 @@ main{
     color: #444444;
     text-align: right;
     white-space: pre-line;
-    padding-right: 5%;
+    padding: 1% 5% 1% 0;
+    font-size: 1.5rem;
     
     overflow-y: scroll;
     scrollbar-width: none; /* Firefox */
@@ -57,22 +58,34 @@ main{
     background-color: #272727;
     color: #10B5F2;
     height: 40%;
-    font-size: 2.5rem;
+    font-size: 2rem;
+
     display: flex;
     justify-content: flex-end;
-    padding-right: 5%;
     align-items: center;
+    padding-right: 5%;
+
+    
 }
 
 .expression-cont{
     margin-bottom: 0;
     font-style: normal;
     transition: margin-bottom 0.1s ease;
+
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.expression-cont::-webkit-scrollbar, .result-cont::-webkit-scrollbar{
+    display: none;
 }
 
 .result-cont{
     color: white;
-    font-size: 5rem;
+    font-size: 4rem;
+    overflow-x: scroll;
 }
 
 .upper-cont{
@@ -105,7 +118,8 @@ main{
     justify-content: center;
     align-items: center;
     background-color: #444444;
-    color: #F8F8F8
+    color: #F8F8F8;
+    font-size: 2rem;
 }
 
 .left-cont .button{
