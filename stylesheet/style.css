@@ -1,10 +1,7 @@
-*{
-   /* outline: 1px red solid; */
-}
-
 *, *::before, *::after {
+    /* outline: 1px red solid; */
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Roboto Mono', monospace, 'Courier New', sans-serif,  Courier;
 }
 
 body{
@@ -16,6 +13,27 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+header, footer{
+     background-color: #000000;
+     color: #10B5F2;
+     height: 3vh;
+     width: 100vw;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+header{
+    margin-bottom: auto;
+    text-transform: capitalize;
+}
+
+
+footer{
+    margin-top: auto;
 }
 
 main{
@@ -69,6 +87,7 @@ main{
     flex-wrap: wrap;
     flex-direction: column;
     overflow-x: auto;
+    gap: 1%;
 }
 
 #lower-panel::-webkit-scrollbar-track{
@@ -101,13 +120,16 @@ main{
 .upper-cont{
     height: 13%;
     display: flex;
+    background-color: #444444;
 }
 
 #clear, #backspace{
     flex: 1;
+    border-radius: 0 0 10px 10px;
 }
 
 .left-cont, .right-cont{
+    background-color: #444444;
     display: flex;
     flex-grow: 1;
     height: 57%;
@@ -127,14 +149,32 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+
+    border-radius: 10px;
     background-color: #444444;
     color: #F8F8F8;
     font-size: 2rem;
 }
 
+.button:hover{
+    box-shadow: inset 10px 10px 12px #3a3a3a,
+    inset -10px -10px 12px #4e4e4e;
+    transition: box-shadow 0.2s;
+}
+
+.button:active{
+    box-shadow: inset 10px 10px 12px #353535,
+    inset -10px -10px 12px #585858;
+    transition: box-shadow 0.2s;
+}
+
 .left-cont .button{
     flex: 1;
     flex-basis: 33.333%;
+}
+
+#point, #zero{
+    border-radius: 10px 10px 0 0;
 }
 
 #zero{ 
@@ -151,7 +191,21 @@ main{
 
 #equal{
     background-color: #10B5F2;
-    color: #272727
+    color: #272727;
+    border-radius: 0;
+}
+
+#equal:hover{
+    box-shadow: inset 10px 10px 12px #0a6d91,
+    inset -10px -10px 12px #6ed8ff;
+    transition: box-shadow 0.2s,  border-radius 0.1s;
+    border-radius: 10px 10px 0 0;
+}
+
+#equal:active{
+    box-shadow: inset 10px 10px 12px #075774,
+    inset -10px -10px 12px #92e2ff;
+    transition: box-shadow 0.2s;
 }
 
 .operator{
