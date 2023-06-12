@@ -20,8 +20,7 @@
                 updateHistory()
                 result = null
             }
-            
-            //pop
+
             expression.pop()
 
             if(!isNaN(+expression[expression.length - 1])){
@@ -34,13 +33,11 @@
         } else if(e.target.id === 'panel'){
             //do nothing nothing
         } else if(['zero','one','two','three','four','five','six','seven','eight','nine'].includes(e.target.id)){
-            //behaviour - so that when there is result, and a number is type instead of an operator - reset stuff
             if(result){
                 result = null
                 expression = []
                 updateHistory()
             }
-
             expression.push(e.target.textContent)
             operatorFlag = true
             display()
@@ -49,22 +46,18 @@
                 updateHistory()
                 result = null
             }
-
-            //if equals solve
             expression.push(e.target.textContent)
             operatorFlag = false
             display()
         } else if(e.target.id == 'equal' && operatorFlag && expression.length != 0){
-
             if(result){
                 updateHistory()
                 result = null
             }
-
-            expression.push(e.target.textContent) //push the = sign
+            expression.push(e.target.textContent)
             operatorFlag = true //to allow operators be applied to operands
             result = solve()    //solve the current content of the expression
-            expression.push(result) //temporary to display only
+            expression.push(result)
             history.push(display())
 
             expression = []
@@ -85,7 +78,6 @@
                     break
                 }
             }
-
             if(!pointFlag){
                 if(isNaN(+expression[expression.length - 1])){
                     console.log('.')
@@ -134,12 +126,7 @@
             }
         }
 
-        //!!!
-        //round of accumulator
-
-        //return accumulator
-        accumulator = Math.round((accumulator + Number.EPSILON) * 100) / 100
-        return accumulator
+        return Math.round((accumulator + Number.EPSILON) * 100) / 100
     }
 
     function compact(){
@@ -175,25 +162,10 @@
     function display(){
         //to dislay current values in the panel
         let strExpression = toString()
-        document.querySelector('.expression-cont').textContent = strExpression
+        let tempExpressionCont =  document.querySelector('.expression-cont')
 
-        //check if there is equal sign '='
-        //if there is, 
-        //  slice the result and put it in its individual element
-        //  slice the strExpression also until, inclusive, the equal sign
-        //  append child
-        //else
-        //  remove appended child if it exist
-        //  either way the content is overwritten for every new entry
-        //did not change other things
+        tempExpressionCont.textContent = strExpression
 
-
-        //!!!!! TO DO TOM
-        // design result
-        // round of
-        // check bugs
-        // submit and share
-        // upper panel padding?
         try {
             let tempResult = document.querySelector('.result-cont')
             document.querySelector('#lower-panel').removeChild(tempResult)
@@ -204,13 +176,11 @@
 
         console.log(strExpression.includes('='))
         if (strExpression.includes('=')){
-            //get result - which is after =
-            let tempResultValue = strExpression.slice(strExpression.indexOf('=')+1)
-            //get equals 
-            let tempExpression = strExpression.slice(0,strExpression.indexOf('=')+1)
-            document.querySelector('.expression-cont').textContent = tempExpression
-            document.querySelector('.expression-cont').style.marginBottom = '5%'
-            document.querySelector('.expression-cont').style.fontStyle = 'italic'
+            let tempResultValue = strExpression.slice(strExpression.indexOf('=')+1) //get result - which is after =
+            let tempExpression = strExpression.slice(0,strExpression.indexOf('=')+1) //get equals 
+            tempExpressionCont.textContent = tempExpression
+            tempExpressionCont.style.marginBottom = '6%'
+            tempExpressionCont.style.fontStyle = 'italic'
 
             let tempResultElement = document.createElement('span')
             tempResultElement.classList.add('result-cont')
@@ -228,12 +198,10 @@
 
     function updateHistory(){
         let historyElem = document.querySelector('#upper-panel')
-        
         if(history.length == 0){
             historyElem.textContent = ""
             return
         }
-        
         historyElem.textContent += `${history[history.length - 1]} \n`
         historyElem.scrollTop = historyElem.scrollHeight;
     }
