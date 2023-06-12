@@ -12,6 +12,7 @@ body{
     margin: 0;
     height: 100vh;
     background-color: #272727;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,6 +20,7 @@ body{
 
 main{
     background-color: #191919;
+    border-radius: 10px;
     width: 30vw;
     height: 80vh;
     padding: 0.5%;
@@ -62,7 +64,6 @@ main{
     width: 100%;
     padding-right: 5%;  
 
-
     display: flex;  
     justify-content: center;
     flex-wrap: wrap;
@@ -71,20 +72,16 @@ main{
 }
 
 #lower-panel::-webkit-scrollbar-track{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: #1d1c1c;
+	background-color: #191919;
 }
 
 #lower-panel::-webkit-scrollbar{
-	width: 12px;
-	background-color: #000000;
+    height: 7px;
 }
 
 #lower-panel::-webkit-scrollbar-thumb{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #D62929;
+    border-radius: 5px;
+	background-color: #10B5F2;
 }
 
 .expression-cont{
