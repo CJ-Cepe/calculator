@@ -138,7 +138,8 @@
         //round of accumulator
 
         //return accumulator
-        return Math.round((accumulator + Number.EPSILON) * 100) / 100
+        accumulator = Math.round((accumulator + Number.EPSILON) * 100) / 100
+        return accumulator
     }
 
     function compact(){
@@ -211,18 +212,15 @@
             document.querySelector('.expression-cont').style.marginBottom = '5%'
             document.querySelector('.expression-cont').style.fontStyle = 'italic'
 
-
             let tempResultElement = document.createElement('span')
             tempResultElement.classList.add('result-cont')
             tempResultElement.textContent = tempResultValue
             document.querySelector('#lower-panel').appendChild(tempResultElement)
             console.log('inserted span')
 
-            
         } else { //delete element if no equal
             document.querySelector('.expression-cont').style.marginBottom = '0'
             document.querySelector('.expression-cont').style.fontStyle = 'normal'
-
         }
        
         return strExpression

@@ -1,5 +1,5 @@
 *{
-    /* outline: 1px red solid; */
+   /* outline: 1px red solid; */
 }
 
 *, *::before, *::after {
@@ -21,9 +21,10 @@ main{
     background-color: #191919;
     width: 30vw;
     height: 80vh;
+    padding: 0.5%;
+
     display: flex;
     flex-wrap: wrap;
-    padding: 0.5%;
 }
 
 #panel, .upper-cont{
@@ -58,34 +59,46 @@ main{
     background-color: #272727;
     color: #10B5F2;
     height: 40%;
-    font-size: 2rem;
+    width: 100%;
+    padding-right: 5%;  
 
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 5%;
 
-    
+    display: flex;  
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    overflow-x: auto;
+}
+
+#lower-panel::-webkit-scrollbar-track{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #1d1c1c;
+}
+
+#lower-panel::-webkit-scrollbar{
+	width: 12px;
+	background-color: #000000;
+}
+
+#lower-panel::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #D62929;
 }
 
 .expression-cont{
+    font-size: 2rem;
     margin-bottom: 0;
     font-style: normal;
     transition: margin-bottom 0.1s ease;
-
-    overflow-x: scroll;
-    scrollbar-width: none;
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-}
-
-.expression-cont::-webkit-scrollbar, .result-cont::-webkit-scrollbar{
-    display: none;
+    margin-left: auto;
 }
 
 .result-cont{
-    color: white;
     font-size: 4rem;
-    overflow-x: scroll;
+    color: white;
+    margin-right: auto;
 }
 
 .upper-cont{
