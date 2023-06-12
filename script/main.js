@@ -166,7 +166,7 @@
             let tempResult = document.querySelector('.result-cont')
             document.querySelector('#lower-panel').removeChild(tempResult)
         } catch(e){
-            console.log('no child exist')
+            //console.log('no child exist')
         }
 
         if (strExpression.includes('=')){
