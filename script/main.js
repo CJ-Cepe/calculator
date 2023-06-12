@@ -123,6 +123,11 @@
             }
         }
 
+        if(isNaN(accumulator)){
+            return 'Math Error'
+            console.log('math error')
+        }
+        console.log(accumulator)
         return Math.round((accumulator + Number.EPSILON) * 100) / 100
     }
 
