@@ -172,7 +172,7 @@
     function display(){
         //to dislay current values in the panel
         let strExpression = toString()
-        document.querySelector('#lower-panel').textContent = strExpression
+        document.querySelector('.expression-cont').textContent = strExpression
 
         //check if there is equal sign '='
         //if there is, 
@@ -183,21 +183,35 @@
         //  remove appended child if it exist
         //  either way the content is overwritten for every new entry
         //did not change other things
+
+
+        //!!!!! TO DO TOM
+        // design result
+        // round of
+        // check bugs
+        // submit and share
+        // upper panel padding?
         console.log(strExpression.includes('='))
         if (strExpression.includes('=')){
             //get result - which is after =
             let tempResultValue = strExpression.slice(strExpression.indexOf('=')+1)
             //get equals 
             let tempExpression = strExpression.slice(0,strExpression.indexOf('=')+1)
-            document.querySelector('#lower-panel').textContent = tempExpression
+            document.querySelector('#lower-panel .expression-cont').textContent = tempExpression
+            document.querySelector('#lower-panel .expression-cont').style.marginBottom = '5%'
+            document.querySelector('#lower-panel .expression-cont').style.fontStyle = 'italic'
+
             let tempResultElement = document.createElement('span')
-            tempResultElement.classList.add('final-result')
+            tempResultElement.classList.add('result-cont')
             tempResultElement.textContent = tempResultValue
             document.querySelector('#lower-panel').appendChild(tempResultElement)
             console.log('inserted span')
         } else { //delete element if no equal
             try {
-                let tempResult = document.querySelector('.final-result')
+                document.querySelector('.expression-cont').style.marginBottom = '0'
+                document.querySelector('.expression-cont').style.fontStyle = 'normal'
+
+                let tempResult = document.querySelector('.result-cont')
                 document.querySelector('#lower-panel').removeChild(tempResult)
                 console.log('remove span')
             } catch(e){

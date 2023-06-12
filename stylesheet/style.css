@@ -57,8 +57,22 @@ main{
     background-color: #272727;
     color: #10B5F2;
     height: 40%;
-    text-align: right;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: flex-end;
     padding-right: 5%;
+    align-items: center;
+}
+
+.expression-cont{
+    margin-bottom: 0;
+    font-style: normal;
+    transition: margin-bottom 0.1s ease;
+}
+
+.result-cont{
+    color: white;
+    font-size: 5rem;
 }
 
 .upper-cont{
@@ -119,3 +133,4 @@ main{
 .operator{
     color: #10B5F2
 }
+
