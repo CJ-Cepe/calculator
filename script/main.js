@@ -179,7 +179,7 @@
             let tempResultValue = strExpression.slice(strExpression.indexOf('=')+1) //get result - which is after =
             let tempExpression = strExpression.slice(0,strExpression.indexOf('=')+1) //get equals 
             tempExpressionCont.textContent = tempExpression
-            tempExpressionCont.style.marginBottom = '6%'
+            tempExpressionCont.style.marginBottom = '3%'
             tempExpressionCont.style.fontStyle = 'italic'
 
             let tempResultElement = document.createElement('span')
