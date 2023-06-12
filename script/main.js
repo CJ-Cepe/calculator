@@ -61,12 +61,10 @@
             history.push(display())
 
             expression = []
-            console.log(typeof result)
             let tempResult = Array.from(String(result))
             //expression.push(result)
             for(let i = 0; i<tempResult.length; i++){
                 expression.push(tempResult[i])
-                console.log(tempResult[i])
             }
         } else if(e.target.id == 'point'){
             let pointFlag = false
@@ -80,7 +78,6 @@
             }
             if(!pointFlag){
                 if(isNaN(+expression[expression.length - 1])){
-                    console.log('.')
                     expression.push('0')
                     expression.push('.')
                 } else if(!isNaN(+expression[expression.length - 1])){
@@ -150,7 +147,6 @@
                 }
             }
         )
-        console.log(`Compacted = ${tempExpression}`)
         return tempExpression
     }
 
@@ -169,12 +165,10 @@
         try {
             let tempResult = document.querySelector('.result-cont')
             document.querySelector('#lower-panel').removeChild(tempResult)
-            console.log('remove span')
         } catch(e){
-            console.log('no child exist babe')
+            console.log('no child exist')
         }
 
-        console.log(strExpression.includes('='))
         if (strExpression.includes('=')){
             let tempResultValue = strExpression.slice(strExpression.indexOf('=')+1) //get result - which is after =
             let tempExpression = strExpression.slice(0,strExpression.indexOf('=')+1) //get equals 
@@ -186,7 +180,6 @@
             tempResultElement.classList.add('result-cont')
             tempResultElement.textContent = tempResultValue
             document.querySelector('#lower-panel').appendChild(tempResultElement)
-            console.log('inserted span')
 
         } else { //delete element if no equal
             document.querySelector('.expression-cont').style.marginBottom = '0'
