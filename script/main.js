@@ -136,8 +136,9 @@
 
         //!!!
         //round of accumulator
-        
-        return accumulator
+
+        //return accumulator
+        return Math.round((accumulator + Number.EPSILON) * 100) / 100
     }
 
     function compact(){
