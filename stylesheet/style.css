@@ -212,3 +212,6 @@ main{
     color: #10B5F2
 }
 
+#backspace > img {
+    pointer-events: none;
+}
